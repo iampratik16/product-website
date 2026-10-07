@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroCollage from '../components/HeroCollage.astro';
+import HeroDemo from '../components/HeroDemo.astro';
 import Cockpit from '../components/Cockpit.astro';
 import FlowArt from '../components/FlowArt.astro';
 import LogoGrid from '../components/LogoGrid.astro';
@@ -61,22 +61,16 @@ const leaks = [
 <Layout description={`${site.name} reads every email in your finance inbox, reconciles invoices and payments against your ledger, approvals and bank, and gives finance leaders a single view of every finance operation.`}>
   <!-- Hero -->
   <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-text">
-        <p class="eyebrow">AP and AR automation for finance teams</p>
-        <h1>Your books say one thing. Your inbox knows the truth.</h1>
-        <p class="lede">
-          {site.name} reads every email in your finance inbox, checks each invoice and payment against your ledger, approvals and bank, and brings
-          your team only the ones that don't add up.
-        </p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/founding-programme#apply">Book a free leakage audit</a>
-          <a class="btn btn-quiet" href="/product">See the product</a>
-        </div>
-        <p class="hero-note">Works with Xero, Zoho Books and ApprovalMax. Nothing posts to your ledger without a confirmed match.</p>
-      </div>
-      <HeroCollage />
+    <div class="wrap hero-text">
+      <p class="mono">Finance AI that understands your books</p>
+      <h1><span class="line">Your books say one thing.</span> <span class="line">Your inbox knows the truth.</span></h1>
+      <p class="lede">
+        {site.name} reads every email in your finance inbox, checks each invoice and payment against your ledger, approvals and bank, and
+        brings your team only the ones that don't add up.
+      </p>
+      <a class="btn btn-primary hero-cta" href="/founding-programme#apply">Book a free leakage audit</a>
     </div>
+    <HeroDemo />
   </section>
 
   <!-- Leaders: the cockpit, in Stampli-style bento panels -->
@@ -344,37 +338,44 @@ const leaks = [
 <style>
   /* Hero */
   .hero {
-    padding-block: clamp(40px, 6vw, 80px) clamp(64px, 8vw, 104px);
+    padding-block: clamp(44px, 6vw, 88px) clamp(56px, 7vw, 96px);
     overflow-x: clip;
-  }
-
-  .hero-grid {
-    display: grid;
-    gap: clamp(40px, 6vw, 64px);
-    align-items: center;
-  }
-
-  @media (min-width: 1060px) {
-    .hero-grid {
-      grid-template-columns: 0.9fr 1.1fr;
-    }
   }
 
   .hero-text {
     display: grid;
-    gap: 24px;
-    justify-items: start;
+    justify-items: center;
+    gap: 22px;
+    margin-bottom: clamp(40px, 5.5vw, 72px);
+    text-align: center;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    color: var(--ink-soft);
   }
 
   .hero h1 {
-    max-width: 13ch;
+    max-width: none;
+    font-size: clamp(2.5rem, 6.2vw, 5.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
   }
 
-  .hero-note {
-    font-size: 0.9375rem;
-    color: var(--ink-soft);
-    padding-left: 14px;
-    border-left: 2px solid var(--brand-bright);
+  .hero h1 .line {
+    display: block;
+    text-wrap: balance;
+  }
+
+  .hero .lede {
+    max-width: 58ch;
+  }
+
+  .hero-cta {
+    min-height: 56px;
+    padding: 14px 32px;
+    font-size: 1.125rem;
   }
 
   /* Bento panels */

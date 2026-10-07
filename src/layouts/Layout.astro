@@ -37,7 +37,7 @@ const year = new Date().getFullYear();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Kalam:wght@700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -361,6 +361,8 @@ const year = new Date().getFullYear();
     top: calc(100% + 10px);
     opacity: 0;
     visibility: hidden;
+    /* A closed panel must never catch the pointer, or hovering the hero would open it */
+    pointer-events: none;
     transform: translateY(-8px);
     transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
   }
@@ -378,6 +380,7 @@ const year = new Date().getFullYear();
   .has-mega.open .mega {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transform: none;
   }
 
@@ -491,7 +494,8 @@ const year = new Date().getFullYear();
   .mega[data-active='controls'] [data-id='controls'],
   .mega[data-active='int'] [data-id='int'] {
     opacity: 1;
-    visibility: visible;
+    /* inherit, not visible: an explicit "visible" would show this list while the panel is closed */
+    visibility: inherit;
     transform: none;
   }
 
