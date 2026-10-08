@@ -10,6 +10,7 @@ import ExceptionBanner from '../components/ExceptionBanner.astro';
 import VendorRecon from '../components/VendorRecon.astro';
 import ApprovalMatch from '../components/ApprovalMatch.astro';
 import LeadersSection from '../components/LeadersSection.astro';
+import PaceTimeline from '../components/PaceTimeline.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
 import { site } from '../data/site';
@@ -222,6 +223,9 @@ const leaks = [
       <ModuleCards />
     </div>
   </section>
+
+  <!-- Onboarding timeline -->
+  <PaceTimeline />
 
   <!-- Exceptions, in bento panels -->
   <section class="section band" aria-labelledby="moments-title">
